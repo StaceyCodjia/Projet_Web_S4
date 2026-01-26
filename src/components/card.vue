@@ -19,7 +19,7 @@
 <style scoped>
 #artefact-card {
   width: 250px;
-  height: 250px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@
 
 #artefact-image {
   width: 100%;
-  height: 105px;
+  height: 200px;
   object-fit: cover;
 }
 
