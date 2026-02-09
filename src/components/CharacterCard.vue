@@ -3,7 +3,9 @@
     <img :src="pictureUrl" :alt="name" style="width: 200px;" />
     <h2>{{ name }}</h2>
     <p>Vision: {{ vision }}</p>
-    <p>Type: {{ type }}</p>
+    <p>Weapon: {{ weapon }}</p>
+    <p>Nation: {{ nation }}</p>
+    <p>Constellation: {{ constellation }}</p>
   </div>
 </template>
 <style scoped>
@@ -28,5 +30,5 @@
 }
 </style>
 <script setup>
-defineProps(['name', 'vision', 'type', 'pictureUrl']);
+defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation']);
 </script>
