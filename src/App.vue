@@ -20,6 +20,7 @@
       :pictureUrl="character.pictureUrl"
       :nation="character.nation"
       :constellation="character.constellation"
+      :birthday="character.birthday"
     />
   </div>
   

@@ -6,6 +6,7 @@
     <p>Weapon: {{ weapon }}</p>
     <p>Nation: {{ nation }}</p>
     <p>Constellation: {{ constellation }}</p>
+    <p>Birthday: {{ birthday }}</p>
   </div>
 </template>
 <style scoped>
@@ -30,5 +31,5 @@
 }
 </style>
 <script setup>
-defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation']);
+defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday']);
 </script>

@@ -14,6 +14,7 @@ export const genshinService = {
         weapon: char.weapon,
         nation: char.nation,
         constellation: char.constellation,
+        birthday: char.birthday,
         pictureUrl: `${BASE_URL}/characters/${char.name.toLowerCase()}/card.png`
       }));
     } catch (error) {
