@@ -1,7 +1,10 @@
 <template>
   <h1>Genshin Characters</h1>
+  <div id="characters-search">
+      <input type="text" v-model="search" placeholder="Search Genshin characters" />
+    </div>
   <div class="filters">
-      <button @click="selectedVision = 'All'">Tous</button>
+      <button @click="selectedVision = 'All'">All</button>
       <button @click="selectedVision = 'Cryo'">Cryo</button>
       <button @click="selectedVision = 'Hydro'">Hydro</button>
       <button @click="selectedVision = 'Pyro'">Pyro</button>
@@ -49,12 +52,13 @@
 </style>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref,computed,onMounted } from 'vue'
 import { genshinService } from './services/genshinapi'
 import CharacterCard from './components/CharacterCard.vue'
 
 const characters = ref([])
 const selectedVision = ref('All')
+const search = ref('')
 
 onMounted(async () => {
   try {
