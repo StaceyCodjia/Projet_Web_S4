@@ -7,16 +7,19 @@ export const genshinService = {
       if (!response.ok) throw new Error('Erreur réseau');
       
       const data = await response.json();
-      return data.map(char => ({
-        id: char.name,
-        name: char.name,
-        vision: char.vision,
-        weapon: char.weapon,
-        nation: char.nation,
-        constellation: char.constellation,
-        birthday: char.birthday,
-        pictureUrl: `${BASE_URL}/characters/${char.name.toLowerCase()}/card.png`
-      }));
+      return data.map(char => {
+        const correctsyntaxe = char.name.replace(/\s+/g, '-').toLowerCase();
+        return {
+          id: char.id,
+          name: char.name,
+          vision: char.vision,
+          weapon: char.weapon,
+          nation: char.nation,
+          constellation: char.constellation,
+          birthday: char.birthday,
+          pictureUrl: `${BASE_URL}/characters/${char.id}/card.png`
+        };
+      });
     } catch (error) {
       console.error("Service Error:", error);
       throw error;
