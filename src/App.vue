@@ -29,6 +29,7 @@
       :nation="character.nation"
       :constellation="character.constellation"
       :birthday="character.birthday"
+      :rarity="character.rarity"
     />
   </div>
   
@@ -79,7 +80,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 10px;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 .filters {
   margin: 20px;

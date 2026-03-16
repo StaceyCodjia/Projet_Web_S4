@@ -17,6 +17,7 @@ export const genshinService = {
           nation: char.nation,
           constellation: char.constellation,
           birthday: char.birthday,
+          rarity: char.rarity || 5,
           pictureUrl: `${BASE_URL}/characters/${char.id}/card.png`
         };
       });
