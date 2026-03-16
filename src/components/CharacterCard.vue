@@ -11,7 +11,6 @@
     <div class="card-body">
       <div class="portrait-section">
         <img :src="pictureUrl" :alt="name" class="portrait" />
-        <p class="level-tag">Level 90 / 90</p>
       </div>
 
       <div class="info-section">
@@ -35,6 +34,10 @@
         <div class="info-item">
           <span class="label">Birthday:</span>
           <span class="value">{{ birthday }}</span>
+        </div>
+        <div class="info-item description-box">
+          <span class="label">Description:</span>
+          <span class="value">{{ description }}</span>
         </div>
       </div>
     </div>
@@ -128,7 +131,7 @@ h2 {
 
 </style>
 <script setup>
-defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'rarity']);
+defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity']);
 
 const getElementIcon = (vision) => {
   return `https://genshin.jmp.blue/elements/${vision.toLowerCase()}/icon.png`

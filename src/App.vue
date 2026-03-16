@@ -29,6 +29,7 @@
       :nation="character.nation"
       :constellation="character.constellation"
       :birthday="character.birthday"
+      :description="character.description"
       :rarity="character.rarity"
     />
   </div>
