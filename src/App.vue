@@ -94,6 +94,28 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+#characters-search {
+  margin: 20px auto;
+  width: min(90%, 500px);
+}
+
+#characters-search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #d3bc8e;
+  border-radius: 999px;
+  background-color: rgba(255,255,255,0.95);
+  color: #111;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+#characters-search input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0,123,255,0.15);
+}
 </style>
 
 <script setup>
@@ -114,7 +136,17 @@ onMounted(async () => {
 })
 
 const filteredCharacters = computed(() => {
-  if (selectedVision.value === 'All') return characters.value
-  return characters.value.filter(char => char.vision === selectedVision.value)
+  let filtered = characters.value
+
+  if (selectedVision.value !== 'All') {
+    filtered = filtered.filter(char => char.vision === selectedVision.value)
+  }
+
+  const term = search.value.trim().toLowerCase()
+  if (term) {
+    filtered = filtered.filter(char => char.name.toLowerCase().includes(term))
+  }
+
+  return filtered
 })
 </script>
