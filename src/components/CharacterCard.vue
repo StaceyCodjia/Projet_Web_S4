@@ -4,7 +4,7 @@
     <div class="card-header">
       <h2>{{ name }}</h2>
       <div class="rarity-stars">
-        {{ '★'.repeat(Math.max(1, Number(rarity) || 5)) }}
+        {{ '★'.repeat(rarity) }}
       </div>
     </div>
 
