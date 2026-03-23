@@ -3,6 +3,7 @@
   <CharacterSearch v-model:search="search" />
   <VisionFilters :selectedVision="selectedVision" @vision-selected="selectedVision = $event" />
   <CharacterGallery :characters="filteredCharacters" />
+  <GalleryFooter />
 </template>
 
 <style scoped>
@@ -15,6 +16,7 @@ import GalleryHeader from './components/GalleryHeader.vue'
 import CharacterSearch from './components/CharacterSearch.vue'
 import VisionFilters from './components/VisionFilters.vue'
 import CharacterGallery from './components/CharacterGallery.vue'
+import GalleryFooter from './components/GalleryFooter.vue'
 
 const characters = ref([])
 const selectedVision = ref('All')
