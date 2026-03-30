@@ -13,26 +13,37 @@
 
 <style scoped>
 .filters {
-  margin: 20px;
+  margin: 16px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
 }
 
 .filters button {
-  margin-right: 10px;
-  padding: 10px 15px;
+  padding: 8px 14px;
   border: none;
   background-color: #007bff;
   color: white;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  white-space: nowrap;
 }
 
 .filters button.active {
-  background-color: #0056b3;
+  background-color: #1ee3ea;
 }
 
 .filters button:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .filters button {
+    padding: 6px 10px;
+  }
 }
 </style>
 

@@ -19,15 +19,14 @@
         <p>This is a fan-made project and is not affiliated with HoYoverse.</p>
       </div>
     </div>
-    </footer>
+  </footer>
 </template>
-
 
 <style scoped>
 .genshin-footer.white-gold {
   background-color: #ffffff; 
   color: #888; 
-  padding: 10px 10px 10px; 
+  padding: 20px 16px;
   margin-top: 60px;
   border-top: 2px solid rgba(211, 188, 142, 0.4);
   text-align: center;
@@ -39,7 +38,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 20px;
 }
 
 .footer-title {
@@ -48,28 +47,31 @@
   letter-spacing: 3px;
   margin-bottom: 5px;
   text-transform: uppercase;
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
 }
 
 .footer-elements {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin: 02px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 2px 0;
 }
 
 .element-icon-original {
-  width: 25px;
+  width: clamp(18px, 4vw, 25px);
+  height: auto;
 }
 
 .footer-disclaimer {
   color: #888;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
+  padding: 0 8px;
 }
 </style>
-
 
 <script setup>
 const elements = [

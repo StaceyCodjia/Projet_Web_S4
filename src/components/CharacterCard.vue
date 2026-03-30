@@ -54,11 +54,13 @@
   border-radius: 14px;
   padding: 20px;
   color: #373a53;
+  width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
 .card.pyro { --elem-color: #ef797c; }
@@ -75,7 +77,7 @@
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
   margin: 0;
   color: #ab7104; 
 }
@@ -83,6 +85,7 @@ h2 {
 .rarity-stars {
   color: #fab72e;
   letter-spacing: 2px;
+  font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
 .card-body {
@@ -91,7 +94,7 @@ h2 {
 }
 
 .portrait {
-  width: 120px;
+  width: clamp(80px, 20vw, 120px);
   height: auto;
   border-radius: 4px;
   mask-image: linear-gradient(to bottom, rgb(248, 193, 120) 80%, transparent 100%);
@@ -102,18 +105,26 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0; /* Prevents overflow */
 }
 
 .info-item {
   display: flex;
-  align-items: center;
-  font-size: 0.9rem;
+  align-items: flex-start;
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  flex-wrap: wrap;
 }
 
 .label {
   color: #aaaaaa;
-  margin-right: 10px;
-  min-width: 80px;
+  margin-right: 8px;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.value {
+  word-break: break-word;
+  flex: 1;
 }
 
 .element-text {
@@ -126,10 +137,25 @@ h2 {
   width: 18px;
   height: 18px;
   margin-right: 8px;
+  flex-shrink: 0;
 }
 
+@media (max-width: 360px) {
+  .card-body {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .portrait {
+    width: 100px;
+  }
+
+  .label {
+    min-width: 80px;
+  }
+}
 </style>
+
 <script setup>
 defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity']);
 

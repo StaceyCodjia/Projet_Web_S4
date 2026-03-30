@@ -18,14 +18,22 @@
 
 <style scoped>
 #genshin-characters-gallery {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
   gap: 20px;
-  padding: 20px 10px;
-  justify-content: center;
+  padding: 20px 16px;
   width: 100%;
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  #genshin-characters-gallery {
+    grid-template-columns: 1fr;
+    padding: 12px 10px;
+    gap: 14px;
+  }
 }
 </style>
 
