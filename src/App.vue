@@ -2,11 +2,27 @@
   <GalleryHeader />
   <CharacterSearch v-model:search="search" />
   <VisionFilters :selectedVision="selectedVision" @vision-selected="selectedVision = $event" />
-  <CharacterGallery :characters="filteredCharacters" />
+
+  <CharacterGallery v-if="filteredCharacters.length > 0" :characters="filteredCharacters" />
+  <div v-else-if="!isLoading" class="empty">
+    Aucun résultat pour "{{ search }}"
+  </div>
+
   <GalleryFooter />
+  <div v-show="isLoading" class="loading">Chargement des personnages...</div>
 </template>
 
 <style scoped>
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  color: #888;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
 </style>
 
 <script setup>
