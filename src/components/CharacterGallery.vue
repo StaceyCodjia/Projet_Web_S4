@@ -12,6 +12,8 @@
       :birthday="character.birthday"
       :description="character.description"
       :rarity="character.rarity"
+      :isFavorite="favorites.includes(character.name)"
+      @toggle-favorite="$emit('toggle-favorite', $event)"
     />
   </div>
 </template>
@@ -44,6 +46,12 @@ defineProps({
   characters: {
     type: Array,
     default: () => []
+  },
+  favorites: {
+    type: Array,
+    default: () => []
   }
 })
+
+defineEmits(['toggle-favorite'])
 </script>

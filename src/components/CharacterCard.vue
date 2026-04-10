@@ -3,8 +3,11 @@
     
     <div class="card-header">
       <h2>{{ name }}</h2>
-      <div class="rarity-stars">
-        {{ '★'.repeat(rarity) }}
+      <div class="header-right">
+        <div class="rarity-stars">{{ '★'.repeat(rarity) }}</div>
+        <button class="fav-btn" :class="{ active: isFavorite }" @click="$emit('toggle-favorite', name)" :title="isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'">
+          {{ isFavorite ? '♥' : '♡' }}
+        </button>
       </div>
     </div>
 
@@ -80,6 +83,38 @@
 .card-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #ccc;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.fav-btn.active {
+  color: #e05f7f;
+}
+
+.fav-btn:hover {
+  transform: scale(1.3);
+  color: #e05f7f;
 }
 
 h2 {
@@ -163,7 +198,8 @@ h2 {
 </style>
 
 <script setup>
-defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity']);
+defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity', 'isFavorite']);
+defineEmits(['toggle-favorite']);
 
 const getElementIcon = (vision) => {
   return `https://genshin.jmp.blue/elements/${vision.toLowerCase()}/icon.png`

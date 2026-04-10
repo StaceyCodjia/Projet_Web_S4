@@ -19,7 +19,7 @@ export const genshinService = {
           birthday: char.birthday,
           description: char.description || 'No description available.',
           rarity: char.rarity || 5,
-          pictureUrl: `${BASE_URL}/characters/${char.id}/card.png`
+          pictureUrl: `${BASE_URL}/characters/${char.id.toLowerCase()}/card.png`
         };
       });
     } catch (error) {
