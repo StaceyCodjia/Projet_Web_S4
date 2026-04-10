@@ -61,6 +61,12 @@
   gap: 15px;
   backdrop-filter: blur(10px);
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(186, 143, 59, 0.4), 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 .card.pyro { --elem-color: #ef797c; }

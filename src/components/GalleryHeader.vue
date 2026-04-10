@@ -44,6 +44,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 8px rgba(211, 188, 142, 0.3));
+  animation: title-glow 3s ease-in-out infinite;
 }
 
 .title-underline {
@@ -51,6 +52,27 @@
   height: 2px;
   background: linear-gradient(90deg, transparent, #d3bc8e, transparent);
   margin: 15px auto 0;
+  animation: underline-pulse 3s ease-in-out infinite;
+}
+
+@keyframes title-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(211, 188, 142, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(211, 188, 142, 0.85));
+  }
+}
+
+@keyframes underline-pulse {
+  0%, 100% {
+    width: 150px;
+    opacity: 0.6;
+  }
+  50% {
+    width: 260px;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 480px) {
