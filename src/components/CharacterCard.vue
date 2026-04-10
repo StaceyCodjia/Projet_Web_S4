@@ -1,11 +1,11 @@
 <template>
-  <div :class="['card', vision.toLowerCase()]">
+  <div :class="['card', vision.toLowerCase()]" @click="router.push(`/character/${id.toLowerCase()}`)" style="cursor:pointer">
     
     <div class="card-header">
       <h2>{{ name }}</h2>
       <div class="header-right">
         <div class="rarity-stars">{{ '★'.repeat(rarity) }}</div>
-        <button class="fav-btn" :class="{ active: isFavorite }" @click="$emit('toggle-favorite', name)" :title="isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'">
+        <button class="fav-btn" :class="{ active: isFavorite }" @click.stop="$emit('toggle-favorite', name)" :title="isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'">
           {{ isFavorite ? '♥' : '♡' }}
         </button>
       </div>
@@ -198,8 +198,11 @@ h2 {
 </style>
 
 <script setup>
-defineProps(['name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity', 'isFavorite']);
+defineProps(['id', 'name', 'vision', 'weapon', 'pictureUrl', 'nation', 'constellation', 'birthday', 'description', 'rarity', 'isFavorite']);
 defineEmits(['toggle-favorite']);
+
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const getElementIcon = (vision) => {
   return `https://genshin.jmp.blue/elements/${vision.toLowerCase()}/icon.png`

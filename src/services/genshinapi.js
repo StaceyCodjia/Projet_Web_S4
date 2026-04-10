@@ -26,5 +26,24 @@ export const genshinService = {
       console.error("Service Error:", error);
       throw error;
     }
+  },
+
+  async getCharacterById(id) {
+    const response = await fetch(`${BASE_URL}/characters/${id.toLowerCase()}`);
+    if (!response.ok) throw new Error('Character not found');
+    const char = await response.json();
+    return {
+      id: char.id,
+      name: char.name,
+      vision: char.vision,
+      weapon: char.weapon,
+      nation: char.nation,
+      constellation: char.constellation,
+      birthday: char.birthday,
+      description: char.description || 'No description available.',
+      rarity: char.rarity || 5,
+      pictureUrl: `${BASE_URL}/characters/${id.toLowerCase()}/card.png`,
+      skillTalents: char.skillTalents || [],
+    };
   }
 };

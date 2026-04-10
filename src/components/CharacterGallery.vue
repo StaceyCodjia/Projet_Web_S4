@@ -3,6 +3,7 @@
     <CharacterCard
       v-for="character in characters"
       :key="character.id"
+      :id="character.id"
       :name="character.name"
       :vision="character.vision"
       :weapon="character.weapon"
